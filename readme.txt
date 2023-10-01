@@ -1,4 +1,4 @@
-Plugin Name: MailPit SMTP for WordPress
+Plugin Name: MailPit SMTP
 Description: A simple plugin to test SMTP settings and override the default WordPress mail system.
 Version: 1.0
 Author: Bishwajit Adhikary

@@ -1,12 +1,12 @@
 <?php
 /*
-Plugin Name: MailPit SMTP for WordPress
+Plugin Name: MailPit SMTP
 Description: A simple plugin to test SMTP settings and override the default WordPress mail system.
 Version: 1.0
 Author: Bishwajit Adhikary
 Author URI: https://bishwajitadhikary.com
 License: GPLv2 or later
-Text Domain: wp-mailpit-smtp
+Text Domain: mailpit-smtp
 */
 
 // Set default values for SMTP host and port
