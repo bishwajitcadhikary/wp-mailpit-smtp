@@ -5,8 +5,8 @@ Description: A simple plugin to test SMTP settings and override the default Word
 Version: 1.0
 Author: Bishwajit Adhikary
 Author URI: https://bishwajitadhikary.com
-License: GPLv2 or later
 Text Domain: mailpit-smtp
+License: GPLv2 or later
 */
 
 // Set default values for SMTP host and port

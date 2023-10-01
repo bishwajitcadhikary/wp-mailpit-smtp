@@ -3,6 +3,7 @@ Description: A simple plugin to test SMTP settings and override the default Word
 Version: 1.0
 Author: Bishwajit Adhikary
 Author URI: https://bishwajitcadhikary.me
+License: GPLv2 or later
 Tags: smtp, wp mail smtp, wordpress smtp, mail, mailer, phpmailer, wp_mail, email, wp smtp
 Tested up to: WordPress 5.3.1 (Update this with the latest tested version)
 
