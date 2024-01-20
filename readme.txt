@@ -1,11 +1,13 @@
-Plugin Name: MailPit SMTP
-Description: A simple plugin to test SMTP settings and override the default WordPress mail system.
-Version: 1.0
-Author: Bishwajit Adhikary
-Author URI: https://bishwajitcadhikary.me
+=== MailPit SMTP ===
+Contributors: bishwajitcadhikary
+Donate link: https://www.buymeacoffee.com/bishwajitca
+Tags: smtp, wp mail smtp, wordpress smtp, mail, mailer, wp_mail, email, wp smtp, mailpit, mailgun
+Requires at least: 4.6
+Tested up to: 6.4.2
+Stable tag: 1.0.1
 License: GPLv2 or later
-Tags: smtp, wp mail smtp, wordpress smtp, mail, mailer, phpmailer, wp_mail, email, wp smtp
-Tested up to: WordPress 5.3.1 (Update this with the latest tested version)
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Requires PHP: 5.6
 
 == Installation ==
 
@@ -23,21 +25,28 @@ Tested up to: WordPress 5.3.1 (Update this with the latest tested version)
 1. After configuring the SMTP settings, you can use the `wp_mail` function in your WordPress code to send emails via SMTP.
 2. To test your SMTP configuration, go to the 'MailPit SMTP Settings' page and use the "Send Test Email" feature.
 
-== Frequently Asked Questions (FAQ) ==
+== Frequently Asked Questions ==
 
-= Q: How do I configure the SMTP settings? =
-A: Navigate to 'Settings' -> 'MailPit SMTP' and enter your SMTP host and port.
+#### How to install MailPit Server?
+Refer to the [MailPit Server installation guide](https://mailpit.axllent.org/docs/install/).
 
-= Q: Can I use authentication with SMTP? =
-A: Yes, you can configure SMTP authentication on the settings page.
+### How do I configure the SMTP settings? ###
+Navigate to 'Settings' -> 'MailPit SMTP' and enter your SMTP host and port.
 
-== Screenshots (optional) ==
+### Can I use authentication with SMTP? ###
+Yes, you can configure SMTP authentication on the settings page.
 
-Nothing here yet.
+== Screenshots ==
+
+1. Settings page to configure an integration.
+
 
 == Changelog ==
 
-1.0
+1.0.1 - Jan 20, 2024
+- Update the readme file
+
+1.0 - Oct 3, 2023
 - Initial release.
 
 == Support ==
@@ -56,6 +65,6 @@ This plugin is released under the [GNU General Public License, Version 2](https:
 
 None yet.
 
-== Upgrade Notice (if needed) ==
+== Upgrade Notice ==
 
 None yet.

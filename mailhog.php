@@ -2,7 +2,7 @@
 /*
 Plugin Name: MailPit SMTP
 Description: A simple plugin to test SMTP settings and override the default WordPress mail system.
-Version: 1.0
+Version: 1.0.1
 Author: Bishwajit Adhikary
 Author URI: https://bishwajitadhikary.com
 Text Domain: mailpit-smtp
@@ -76,11 +76,11 @@ function mailpit_smtp_settings_page() {
             $message = 'This is a test email sent from the MailPit SMTP Plugin for WordPress.';
             $result = wp_mail($test_email, $subject, $message);
 
-            if ($result) {
-                echo '<div class="updated"><p>Test email sent successfully to ' . $test_email . '</p></div>';
-            } else {
-                echo '<div class="error"><p>Error sending test email to ' . $test_email . '</p></div>';
-            }
+            if ($result) { ?>
+                <div class="updated"><p>Test email sent successfully to <?= esc_attr($test_email) ?></p></div>
+            <?php } else { ?>
+                <div class="error"><p>Error sending test email to <?= esc_attr($test_email) ?></p></div>
+            <?php }
         }
         ?>
     </div>
@@ -130,13 +130,13 @@ function mailpit_smtp_settings_section_callback() {
 // Callback to display SMTP Host field
 function mailpit_smtp_host_callback() {
     $host = esc_attr(get_option('mailpit_smtp_host'));
-    echo "<input type='text' name='mailpit_smtp_host' value='$host' />";
+    echo "<input type='text' name='mailpit_smtp_host' value='" . esc_attr($host) ."' />";
 }
 
 // Callback to display SMTP Port field
 function mailpit_smtp_port_callback() {
     $port = esc_attr(get_option('mailpit_smtp_port'));
-    echo "<input type='text' name='mailpit_smtp_port' value='$port' />";
+    echo "<input type='text' name='mailpit_smtp_port' value='". esc_attr($port) ."' />";
 }
 
 // Hook to add menu, initialize settings, and set default options
@@ -163,13 +163,6 @@ function mailpit_smtp_uninstall() {
     // Remove options from the database
     delete_option('mailpit_smtp_host');
     delete_option('mailpit_smtp_port');
-
-    // Optionally, you can perform additional cleanup tasks here
-    // For example, you can delete custom database tables, files, or any other plugin-specific data.
-
-    // Note: Be cautious when deleting data, and ensure it won't cause issues for users.
-
-    // You can also remove any custom roles or capabilities created by your plugin.
 }
 
 // Hook the uninstaller function to the 'uninstall' action
