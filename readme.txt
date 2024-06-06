@@ -1,13 +1,18 @@
 === MailPit SMTP ===
 Contributors: bishwajitcadhikary
 Donate link: https://www.buymeacoffee.com/bishwajitca
-Tags: smtp, wp mail smtp, wordpress smtp, mail, mailer, wp_mail, email, wp smtp, mailpit, mailgun
+Tags: smtp, mail, email, mailpit, mailgun
 Requires at least: 4.6
 Tested up to: 6.4.2
 Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Requires PHP: 5.6
+
+A simple plugin to test SMTP settings and override the default WordPress mail system.
+
+== Description ==
+SMTP Test & Override is a powerful yet simple WordPress plugin designed to ensure reliable email delivery by allowing users to test SMTP settings directly within their WordPress dashboard. Say goodbye to the uncertainties of email delivery and hello to peace of mind with this essential tool for WordPress site owners.
 
 == Installation ==
 
@@ -36,12 +41,11 @@ Navigate to 'Settings' -> 'MailPit SMTP' and enter your SMTP host and port.
 ### Can I use authentication with SMTP? ###
 Yes, you can configure SMTP authentication on the settings page.
 
-== Screenshots ==
-
-1. Settings page to configure an integration.
-
 
 == Changelog ==
+
+1.0.2 - Jun 07, 2024
+- Fix some minor bugs
 
 1.0.1 - Jan 20, 2024
 - Update the readme file

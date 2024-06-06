@@ -1,13 +1,25 @@
 <?php
-/*
-Plugin Name: MailPit SMTP
-Description: A simple plugin to test SMTP settings and override the default WordPress mail system.
-Version: 1.0.1
-Author: Bishwajit Adhikary
-Author URI: https://bishwajitadhikary.com
-Text Domain: mailpit-smtp
-License: GPLv2 or later
-*/
+/**
+ * MailPit SMTP
+ *
+ * @package           MailPit
+ * @author            Bishwajit Adhikary
+ * @copyright         2024 Bishwajit Adhikary
+ * @license           GPL-2.0-or-later
+ *
+ * @wordpress-plugin
+ * Plugin Name:       MailPit SMTP
+ * Plugin URI:        https://wordpress.org/plugins/mailpit-smtp
+ * Description:       A simple plugin to test SMTP settings and override the default WordPress mail system.
+ * Version:           1.0.1
+ * Requires at least: 5.3
+ * Requires PHP:      7.4
+ * Author:            Bishwajit Adhikary
+ * Author URI:        https://github.com/bishwajitcadhikary
+ * Text Domain:       mailpit-smtp
+ * License:           GPL v2 or later
+ * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ */
 
 // Set default values for SMTP host and port
 function mailpit_smtp_default_options() {
@@ -34,7 +46,7 @@ function mailpit_smtp_settings_page() {
     ?>
     <div class="wrap">
         <h2>MailPit SMTP Settings</h2>
-        <form method="post" action="options.php">
+        <form method="post" action="<?php echo esc_url(admin_url('options.php')); ?>">
             <?php
             settings_fields('mailpit-smtp-settings-group');
             do_settings_sections('mailpit-smtp-settings');
@@ -44,6 +56,9 @@ function mailpit_smtp_settings_page() {
 
         <h2>Test SMTP Email</h2>
         <form method="post" action="">
+            <?php
+            wp_nonce_field('mailpit_smtp_test_email', 'mailpit_smtp_nonce');
+            ?>
             <table class="form-table" role="presentation">
                 <tbody>
                 <tr>
@@ -71,15 +86,20 @@ function mailpit_smtp_settings_page() {
         </form>
         <?php
         if (isset($_POST['send_test_email'])) {
+            // Verify nonce
+            if (!isset($_POST['mailpit_smtp_nonce']) || !wp_verify_nonce($_POST['mailpit_smtp_nonce'], 'mailpit_smtp_test_email')) {
+                wp_die('Security check');
+            }
+
             $test_email = sanitize_email($_POST['test_email']);
             $subject = sanitize_text_field($_POST['subject']);
             $message = 'This is a test email sent from the MailPit SMTP Plugin for WordPress.';
             $result = wp_mail($test_email, $subject, $message);
 
             if ($result) { ?>
-                <div class="updated"><p>Test email sent successfully to <?= esc_attr($test_email) ?></p></div>
+                <div class="updated"><p>Test email sent successfully to <?php echo esc_attr($test_email) ?></p></div>
             <?php } else { ?>
-                <div class="error"><p>Error sending test email to <?= esc_attr($test_email) ?></p></div>
+                <div class="error"><p>Error sending test email to <?php echo esc_attr($test_email) ?></p></div>
             <?php }
         }
         ?>
